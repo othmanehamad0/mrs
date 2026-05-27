@@ -1,56 +1,91 @@
 # Music Recommendation System
 
-This repository contains a Music Recommendation System that enables users to play/pause songs, view and play songs in their playlist, view song lyrics, and generate music recommendations based on the songs in their playlist. The system is built using PyQt6 for the GUI, Spotify API for song data, Genius Lyrics API for lyrics, and a recommendation model utilizing TF-IDF Vectorizer and Cosine Similarity.
+This repository contains a Music Recommendation System that enables users to play/pause local songs, view and play songs in their playlist, view song lyrics from local metadata or text files, and generate music recommendations based on the songs in their playlist. The system is built using Python and PyQt6 for the GUI, along with a recommendation model utilizing TF-IDF Vectorizer and Cosine Similarity.
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Setup and Installation](#setup-and-installation)
-- [Usage](#usage)
+
+* [Introduction](#introduction)
+* [Features](#features)
+* [Technologies Used](#technologies-used)
+* [Dependencies](#dependencies)
+* [Setup and Installation](#setup-and-installation)
+* [Usage](#usage)
 
 ## Introduction
 
-The Music Recommendation System is a software application that offers users the ability to manage their music, listen to songs, view lyrics, and receive recommendations based on their existing playlist. It utilizes APIs to fetch song data and lyrics and employs a recommendation model to suggest songs.
+The Music Recommendation System is a desktop software application that allows users to manage and listen to their local music collection, display song lyrics stored locally, and receive music recommendations based on the songs available in their playlist. The recommendation engine analyzes song metadata and text features to suggest similar songs.
 
 ## Features
 
-- **Play/Pause Song**: Allows users to play and pause songs.
-- **View/Play Songs in Playlist**: Enables users to view and play songs present in their playlist.
-- **View Song Lyrics**: Provides the lyrics for the current song being played.
-- **Generate Recommendations**: Generates song recommendations based on the songs in the user's playlist.
+* **Play/Pause Songs**: Play and pause local audio files.
+* **View/Play Songs in Playlist**: Browse and play songs stored on your computer.
+* **View Song Lyrics**: Display lyrics from local `.txt` files or embedded metadata.
+* **Generate Recommendations**: Recommend similar songs using machine learning techniques.
+* **Local Music Library Support**: No internet connection or external APIs required.
 
 ## Technologies Used
 
-- **PyQt6**: Python library for creating GUI applications.
-- **Spotify API**: Provides song data and playback functionality.
-- **Genius Lyrics API**: Fetches song lyrics.
-- **Recommendation Model**:
-  - **TF-IDF Vectorizer**: Converts text data into numerical representation.
-  - **Cosine Similarity**: Measures similarity between songs for recommendations.
+* **PyQt6** — GUI framework for desktop applications.
+* **Pygame / PyQt Multimedia** — Audio playback.
+* **Pandas** — Data handling and preprocessing.
+* **Scikit-learn** — TF-IDF Vectorizer and Cosine Similarity for recommendations.
+* **NumPy** — Numerical operations.
+* **Mutagen** — Read metadata from local audio files.
+* **SQLite3** — Optional local database for playlists and song storage.
+
+## Dependencies
+
+Install all required dependencies using:
+
+```bash
+pip install pyqt6 pygame pandas numpy scikit-learn mutagen
+```
+
+Optional dependencies:
+
+```bash
+pip install lyricsgenius
+```
 
 ## Setup and Installation
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/11a55an/music-recommendation-system.git
-    ```
+```bash
+git clone https://github.com/othmanehamad0/mrs
+```
 
-2. Install the required dependencies:
+2. Navigate to the project folder:
 
-3. Set up the Spotify API and Genius Lyrics API by following their respective documentation.
+```bash
+cd mrs
+```
 
-4. Run the application:
+3. Install the required dependencies:
 
-    ```bash
-    python main.py
-    ```
+```bash
+pip install -r requirements.txt
+```
+
+4. Add your local music files to the `songs/` directory.
+
+5. (Optional) Add lyrics text files to the `lyrics/` directory.
+
+6. Run the application:
+
+```bash
+python main.py
+```
 
 ## Usage
 
-1. Open the application and authenticate with your Spotify account.
+1. Open the application.
 
-2. Play/pause songs, view your playlist, and view song lyrics.
+2. Load or scan your local music folder.
 
-3. Receive song recommendations based on your playlist under the Recommendations tab.
+3. Play/pause songs and manage your playlist.
+
+4. View song lyrics if available locally.
+
+5. Open the Recommendations tab to receive song suggestions based on your playlist.
+
